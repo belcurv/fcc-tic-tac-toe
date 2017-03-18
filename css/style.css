@@ -1,0 +1,79 @@
+/* basic reset */
+body,
+html {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: linear-gradient( #6672c2, #40bc51 ) center center no-repeat fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#tic-tac-toe {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    color: #fff;
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 0 12px #fff;
+    box-shadow: 0 0 10px 4px #333;
+}
+
+.shadowbox {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* ================================== game ================================= */
+
+#game {
+    flex: 1;
+}
+
+/* ================================= footer ================================ */
+.belcurv-footer {
+    padding: 1em;
+    background: #404040;
+    color: #999;
+    text-align: center;
+    font-size: 13px;
+}
+
+.belcurv-footer .footer-credit {
+    vertical-align: middle;
+}
+
+.belcurv-footer .github-icon {
+    display: inline-block;
+    fill: rgb(255, 255, 255);
+    vertical-align: middle;
+}
+
+.belcurv-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.belcurv-footer a:hover {
+    text-decoration: underline;
+}
