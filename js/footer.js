@@ -2,11 +2,11 @@
 /* jshint esversion:6 */
 /* globals jQuery */
 
-(function ($) {
+var BelcurvFooter = (function ($) {
     
     'use strict';
     
-    var $footer  = $('footer'),
+    var DOM      = {},
         desc     = 'Tic Tac Toe',
         version  = '0.0.1',
         link     = 'https://github.com/belcurv/fcc-tic-tac-toe',
@@ -22,6 +22,33 @@
 
             <p class="footer-credit">Source released under the MIT license. Website and documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></p>`;
     
-    $footer.html(template);
+    
+    /* ========================== private methods ========================== */
+    
+    // cache DOM elements
+    function cacheDom() {
+        DOM.$footer = $('footer');
+    }
+    
+    
+    // main renderer
+    function render() {
+        DOM.$footer.html(template);
+    }
+    
+    
+    /* ========================== public methods =========================== */
+    
+    // main init function
+    function init() {
+        cacheDom();
+        render();
+    }
+    
+    
+    /*  export public methods  */
+    return {
+        init: init
+    };
     
 }(jQuery));

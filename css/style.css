@@ -26,7 +26,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    
 }
 
 .title {
@@ -48,6 +48,87 @@ body {
 
 #game {
     flex: 1;
+    display: flex;
+    align-self: center;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 720px;
+}
+
+#game .board {
+    display: flex;
+    height: 720px;
+    flex-flow: row wrap;
+}
+
+#game .square {
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    flex: 1 0 30%;
+}
+
+#game .square#sq0 {
+    border-top: none;
+    border-left: none;
+}
+
+#game .square#sq1 {
+    border-top: none;
+}
+
+#game .square#sq2 {
+    border-top: none;
+    border-right: none;
+}
+
+#game .square#sq3 {
+    border-left: none;
+}
+
+#game .square#sq5 {
+    border-right: none;
+}
+
+#game .square#sq6 {
+    border-bottom: none;
+    border-left: none;
+}
+
+#game .square#sq7 {
+    border-bottom: none;
+}
+
+#game .square#sq8 {
+    border-bottom: none;
+    border-right: none;
+}
+
+/* ============================== responsive =============================== */
+
+@media all and (max-width: 720px) {
+        
+    #game {
+        width: 480px;
+    }
+    
+    #game .board {
+        height: 480px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    
+    .title {
+        font-size: 2em;
+    }
+    
+    #game {
+        width: 320px;
+    }
+    
+    #game .board {
+        height: 320px;
+    }
 }
 
 /* ================================= footer ================================ */
