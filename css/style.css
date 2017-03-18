@@ -56,12 +56,16 @@ body {
 }
 
 #game .board {
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 10em;
     display: flex;
     height: 720px;
     flex-flow: row wrap;
 }
 
 #game .square {
+    height: 33.34%;
     border: 1px solid #fff;
     box-sizing: border-box;
     flex: 1 0 30%;
@@ -103,6 +107,15 @@ body {
     border-right: none;
 }
 
+
+/* ================================ logger ================================= */
+#logger {
+    color: rgba(255,255,255,.7);
+    position: fixed;
+    bottom: 70px;
+}
+
+
 /* ============================== responsive =============================== */
 
 @media all and (max-width: 720px) {
@@ -113,6 +126,7 @@ body {
     
     #game .board {
         height: 480px;
+            line-height: 1em;
     }
 }
 
@@ -127,6 +141,8 @@ body {
     }
     
     #game .board {
+        line-height: 1.3em;
+        font-size: 5em;
         height: 320px;
     }
 }
