@@ -123,28 +123,36 @@ var Game = (function ($) {
     // check for a winner
     function checkIfWinner() {
         
+        var winner;
+        
         ['X', 'O'].forEach(function (player) {
             var occupiedSpaces = gameState.spaces
                 .filter( space => space.val === player )
                 .map(    space => space.ind );
-            
+
             victories.forEach(function (v) {
                 var match = v.every( el => occupiedSpaces.indexOf(el) > -1 );
                 if (match) {
-                    // call victory with specified player
-                    victory(player);
+                    gameState.gameOver = true;
+                    showVictoryModal(`Player ${player}`);
+                    winner = true;
                 }
             });
         });
+        
+        return winner;
     }
     
     
-    // handle victory
-    function victory(player) {
-        gameState.gameOver = true;
-        showVictoryModal(player);
+    // check for tie game
+    function checkDraw() {
+        
+        if (!checkIfWinner() && gameState.numberTurns === 9) {
+            gameState.gameOver = true;
+            showVictoryModal('No One');
+        }
     }
-    
+        
     
     // build and show victory modal
     function showVictoryModal(player) {
@@ -157,7 +165,7 @@ var Game = (function ($) {
         DOM.$vModal
             .addClass('modal')
             .appendTo(DOM.$game)
-            .html(`<p>Player ${player} wins!</p>`)
+            .html(`<p>${player} wins!</p>`)
             .append(DOM.$vButton)
             .show();
     }
@@ -229,8 +237,9 @@ var Game = (function ($) {
     // advance game one turn at a time
     function step() {
         
-        checkIfWinner();
         gameState.numberTurns += 1;
+        checkIfWinner();
+        checkDraw();
         
         // check if it's the computer's turn
         if (gameState.numberTurns % 2 !== 0) {
@@ -244,6 +253,8 @@ var Game = (function ($) {
         
         // toggle player's turn
         gameState.playerTurn = !gameState.playerTurn;
+        
+//        console.log(gameState.numberTurns);
         
     }
     
